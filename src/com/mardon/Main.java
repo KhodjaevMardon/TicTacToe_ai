@@ -25,13 +25,14 @@ public class Main {
             doHumanMove(field, 'X');
             drawField(field);
 
-            if(checkDraw(field)){
-                System.out.println("Game ended in a draw.\nNobody won.");
-                break;
-            }
             // checkwinHuman
             if (checkWin(field, 'X')) {
                 System.out.println("HUMAN WINS.\nGame is over.");
+                break;
+            }
+
+            if (checkDraw(field)) {
+                System.out.println("Game ended in a draw.\nNobody won.");
                 break;
             }
 
@@ -177,11 +178,11 @@ public class Main {
         }
     }
 
-    public static boolean checkDraw(char[][] field){
+    public static boolean checkDraw(char[][] field) {
         int counter = 0;
-        for (int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                if(field[i][j] == '_'){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (field[i][j] == '_') {
                     return false;
                 }
             }
